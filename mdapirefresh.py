@@ -1,4 +1,4 @@
-import ssl, requests, json
+import requests, json
 #these are all the variables you'll need to set
 ts_username = '<username>'
 ts_password = '<password>'
@@ -7,10 +7,10 @@ site = '<sitename>'
 schedule_name = '<Daily>'
 table_name = '<table_name>'
 
+#these are all default variables
 needs_refresh = []
 on_schedule = []
 run_now = []
-context = ssl.create_default_context()
 headers = {'accept': 'application/json','content-type': 'application/json'}
 payload = { "credentials": {"name": ts_username, "password": ts_password, "site" :{"contentUrl": site} } }
 req = requests.post(ts_url + 'api/3.5/auth/signin', json=payload, headers=headers, verify=True)
